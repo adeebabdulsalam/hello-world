@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning Firebase</title>
+        
+    </head>
+    <body>
+        <form onsubmit="validate();">
+           Text:<input type="text" id='text'/>
+           <input type='submit' value='save'/>
+        </form> 
+        <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+        <script type="text/javascript">                 
+        var config = {
+        apiKey: "AIzaSyDCgKyozHTd87JRro4ER4Nc5qcBsCnsbiA",
+        authDomain: "inventory-c2281.firebaseapp.com",
+        databaseURL: "https://inventory-c2281.firebaseio.com",
+        projectId: "inventory-c2281",
+        storageBucket: "inventory-c2281.appspot.com",
+        messagingSenderId: "957705008945"
+              };
+        firebase.initializeApp(config);
+
+        var text= document.getElementById("text");
+
+        function validate(){
+             
+              var database=firebase.database().ref();
+              database.child("text").set(text.value);
+            
+           }
+        </script>
+    </body>
+</html>
